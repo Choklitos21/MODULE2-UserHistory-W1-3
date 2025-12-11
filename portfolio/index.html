@@ -26,10 +26,11 @@
 
     <section id="aboutMe">
         <h2>About me</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi illo in minus nostrum perspiciatis porro
+        <p id="myText">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi illo in minus nostrum perspiciatis porro
             praesentium provident qui quia similique, sunt voluptate! Autem fugit, laborum nobis optio quidem
             reiciendis sint.
         </p>
+        <button id="changeText" type="button">Change text</button>
     </section>
 
     <section id="projects">
@@ -53,6 +54,13 @@
             <button type="button">Send</button>
         </form>
     </section>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome</h2>
+            <span class="close" onclick="closeModal()">X</span>
+        </div>
+    </div>
 
     <script src="scripts.js"></script>
 </body>

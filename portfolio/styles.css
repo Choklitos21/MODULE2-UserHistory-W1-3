@@ -1,6 +1,8 @@
 :root {
-    --links-color: #ff001d;
-    --hover-color: #fa760b;
+    --links-color: #636b2f;
+    --hover-color: #2d6f41;
+    --shadow-color: #2d6037;
+    --background-color: #06402a;
 }
 
 html {
@@ -16,16 +18,34 @@ html {
     align-items: center;
 }
 
+body {
+    padding-bottom: 50px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+p, li {
+    font-size: 1.3rem;
+}
+
+label {
+    font-size: 1.2rem;
+}
+
 a {
     text-decoration: none;
     font-weight: 500 !important;
     color:  var(--links-color);
     transition: color 0.3s ease, text-shadow 0.3s ease;
+    font-size: 1.2rem;
 }
 
 a:hover {
+    font-style: oblique;
     color: var(--hover-color);
-    text-shadow: 4px 4px 8px rgba(255, 213, 0, 1);
+    text-shadow: 5px 5px 5px var(--shadow-color);
 }
 
 .portfolioBody {
@@ -33,6 +53,8 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: start;
+    background-color: var(--background-color);
+    color: white;
 }
 
 .portfolioBody header {
@@ -52,6 +74,20 @@ a:hover {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 60px;
+}
+
+#changeText {
+    border: unset;
+    border-radius: 5px;
+    background-color: var(--links-color);
+    color: white;
+    width: 100px;
+    height: 30px;
+    font-size: 1rem;
+}
+
+#changeText:active {
+    background-color: var(--shadow-color);
 }
 
 #contactMe {
@@ -114,68 +150,128 @@ form textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--background-color);
+    color: white;
 }
 
 .petsBody section,
 .petsBody a {
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 .petsGallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    grid-gap: 25px;
+    grid-row-gap: 40px;
     grid-auto-rows: minmax(100px, auto);
 }
 
 .petsGallery article {
     max-width: 300px;
     height: 300px;
-    overflow: hidden;
-}
-
-.petsGallery img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px grey;
     transition: transform 0.3s ease-in-out;
 }
 
-.petsGallery img:hover {
+.img-container {
+    width: 100%;
+    height: 90%;
+}
+
+.petsGallery article:hover {
     transform: scale(1.04);
 }
 
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px #006650;
+}
+
 @media (max-width: 480px) {
+    .petsGallery article {
+        max-width: 300px;
+        height: auto;
+        overflow: hidden;
+    }
+
     .petsGallery {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px;
+        grid-gap: 12px;
         grid-auto-rows: minmax(100px, auto);
     }
 
-    .petsGallery img {
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 3px 3px 3px grey;
-        transition: transform 0.3s ease-in-out;
+    .img-container {
+        width: 150px;
+        height: 100px;
     }
 }
 
 @media (min-width: 480px) and (max-width: 768px){
+    .petsGallery article {
+        max-width: 250px;
+        height: 200px;
+    }
+
     .petsGallery {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-gap: 10px;
+        grid-gap: 25px;
+        grid-row-gap: 50px;
         grid-auto-rows: minmax(100px, auto);
     }
+}
 
-    .petsGallery img {
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 3px 3px 3px grey;
-        transition: transform 0.3s ease-in-out;
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    color: black;
+}
+
+.modal-content {
+    display: grid;
+    grid-template-columns: 95% 5%;
+    place-items: center;
+    background-color: grey;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 50%;
+    color: black;
+}
+
+.modal-content span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-color: var(--links-color);
+}
+
+.modal-content span:active {
+    border: unset;
+    background-color: var(--shadow-color);
+    color: white;
+}
+
+@media (max-width: 480px) {
+    .modal-content span {
+        width: 30px;
+        height: 60%;
     }
 }
+
 
