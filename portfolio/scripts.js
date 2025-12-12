@@ -7,10 +7,6 @@ myButton.addEventListener('click', () => {
 })
 
 //Welcome message
-function showModal() {
-    document.getElementById("myModal").style.display = "block";
-}
-
 function closeModal() {
     document.getElementById("myModal").style.display = "none";
 }
@@ -18,5 +14,5 @@ function closeModal() {
 window.onload = function() {
     setTimeout(function(){
         document.getElementById("myModal").style.display = "block";
-    }, 1); // 3000 milisegundos = 3 segundos
+    }, 1);
 };
